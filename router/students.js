@@ -43,6 +43,18 @@ router.post('/getById',(req,res) => {
   })
 })
 
+router.post('/getByClass',(req,res) => {
+  Student.find(req.body , (err,data) => {
+    if (err) {
+      res.json(err)
+    }
+
+    else {
+      res.json(data)
+    }
+  })
+})
+
 router.post('/count', (req,res) => {
   Student.count(req.body, (err,count)=>{
     if (err) {

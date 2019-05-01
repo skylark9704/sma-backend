@@ -20,15 +20,6 @@ router.post('/create',(req,res) => {
 })
 
 router.get('/getAll',(req,res) => {
-  /*Receipt.find({},{}, { sort: { '_id' : -1 } }, (err,data) => {
-    if (err) {
-      res.json(err)
-    }
-
-    else {
-      res.json(data)
-    }
-  })*/
   Receipt.find().sort({_id: -1}).exec(function(err,userpost) {
     if(err){
         res.json(err);
