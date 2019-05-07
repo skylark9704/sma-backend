@@ -47,7 +47,7 @@ var Attendance = new Schema({
 mongoose.model("Attendance",Attendance);
 
 var Fee = new Schema({
-    username  : {type:String,required:true, unique:true},
+    receipt  : {type:String,required:true, unique:true},
     password: {type:String,required:true},
     role: {type:String,required:true},
 });
@@ -65,3 +65,13 @@ var Receipt = new Schema({
 });
 
 mongoose.model("Receipt",Receipt);
+
+var Examination = new Schema({
+    exam_id: {type:String,required:true, unique:true},
+    type: {type:String,required:true},
+    classes: {type:Array,required:true},
+    doc: {type:Date, required:true},
+    term: {type:String, required:true}
+});
+
+mongoose.model("Examination",Examination);
