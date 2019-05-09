@@ -25,21 +25,22 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(cors({origin: 'http://192.168.0.10'}))
+app.use(cors({origin: '*'}))
 
 var students = require('./router/students.js')
 var receipts = require('./router/receipts.js')
 var examinations = require('./router/examinations.js')
+var staff = require('./router/staff.js')
 
 app.use('/api/student', students)
 app.use('/api/receipt', receipts)
 app.use('/api/examination', examinations)
+app.use('/api/staff', staff)
 
 var cpUpload = upload.fields([{ name: 'sdoc1'}, { name: 'sdoc2'}, { name: 'gdoc1'}, { name: 'gdoc2'}, { name: 'pdoc1'}, { name: 'pdoc2'}])
 app.post('/upload', cpUpload, (req, res, next) => {
   console.log(req.files);
   res.send(req.files)
-
 })
 
 

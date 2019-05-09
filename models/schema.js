@@ -75,3 +75,19 @@ var Examination = new Schema({
 });
 
 mongoose.model("Examination",Examination);
+
+var Staff = new Schema({
+    staff_id: {type:String,required:true, unique:true},
+    fName: {type:String,required:true},
+    lName: {type:Array,required:true},
+    gender: {type:Date, required:true},
+    phone: {type:String, required:true},
+    email: {type:String, required:true},
+    doj: {type:Date, required:true},
+    dob: {type:Date, required:true},
+    blood_group: {type:String, required:false},
+    category: {type:String, required:false},
+});
+
+
+mongoose.model("Staff",Staff);
