@@ -44,4 +44,4 @@ app.post('/upload', cpUpload, (req, res, next) => {
 })
 
 
-app.listen(8080,'10.128.0.2')
+app.listen(7000,'192.168.0.10')

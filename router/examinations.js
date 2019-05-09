@@ -56,9 +56,9 @@ router.post('/count', (req,res) => {
 })
 
 router.get('/upcoming', (req,res) => {
-  Examination.find({ "doc": { $gt: new Date() }},{sort:{doc : -1}}, function (err, data) {
+  Examination.find({ "doc": { $gt: new Date() }},{},{sort:{'doc' : -1}}, function (err, data) {
     if (err) {
-      res.end()
+      res.send(err)
     }
 
     else {
