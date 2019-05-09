@@ -55,5 +55,17 @@ router.post('/count', (req,res) => {
   })
 })
 
+router.get('/upcoming', (req,res) => {
+  Examination.find({ "doc": { $gt: new Date() }, limit:3}, function (err, data) {
+    if (err) {
+      res.end()
+    }
+
+    else {
+      res.json(data)
+    }
+  })
+})
+
 
 module.exports = router;
